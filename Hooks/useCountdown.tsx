@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 interface Props {}
 
 const useCountdown = (props: Props) => {
-  console.log(props);
-
   const [days, setDays] = useState<number>(0);
   const [hours, setHours] = useState<number>(0);
   const [minutes, setMinutes] = useState<number>(0);

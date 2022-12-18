@@ -5,11 +5,19 @@ interface Props {
   varient: string;
   colorScheme: string;
   children: string;
+  handleBid?: () => void;
 }
 
-const CardButton = ({ width, varient, colorScheme, children }: Props) => {
+const CardButton = ({
+  width,
+  varient,
+  colorScheme,
+  children,
+  handleBid,
+}: Props) => {
   return (
     <Button
+      onClick={handleBid}
       rounded={"none"}
       textTransform={"uppercase"}
       fontWeight={"bold"}

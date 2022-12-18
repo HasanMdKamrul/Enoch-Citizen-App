@@ -1,6 +1,7 @@
-import { Box, Card, Flex, WrapItem } from "@chakra-ui/react";
+import { Box, Card, Flex, useDisclosure, WrapItem } from "@chakra-ui/react";
 import Image from "next/image";
 import HeaderTag from "../HeaderTag/HeaderTag";
+import GenericModal from "../Modal/GenericModal";
 import BidingTag from "./BidingTag";
 import CardBodyComponent from "./CardBodyComponent";
 import CardButton from "./CardButton";
@@ -20,7 +21,14 @@ interface Props {
 }
 
 const CardComponent = ({ item }: Props) => {
-  console.log(item);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  let handleClick: () => any;
+
+  handleClick = (): void => {
+    onOpen();
+    console.log("clicked");
+  };
 
   const { author, biding, image, likes, price, title, countDownStartTime } =
     item;
@@ -96,6 +104,7 @@ const CardComponent = ({ item }: Props) => {
           {biding && (
             <WrapItem my={4} gap={2}>
               <CardButton
+                handleBid={handleClick}
                 width={"full"}
                 varient={"solid"}
                 colorScheme={"messenger"}
@@ -125,6 +134,7 @@ const CardComponent = ({ item }: Props) => {
           )}
         </Box>
       </Card>
+      <GenericModal onOpen={onOpen} isOpen={isOpen} onClose={onClose} />
     </Flex>
   );
 };

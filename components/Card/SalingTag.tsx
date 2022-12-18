@@ -7,7 +7,7 @@ interface Props {
   children: string;
   secondText: number | string;
   sale?: boolean;
-  timer: boolean;
+  timer?: boolean;
   countDownStartTime?: string | undefined;
 }
 
