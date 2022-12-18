@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 
 interface Props {}
 
-const CountDown = (props: Props) => {
+const useCountdown = (props: Props) => {
+  console.log(props);
+
   const [days, setDays] = useState<number>(0);
   const [hours, setHours] = useState<number>(0);
   const [minutes, setMinutes] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(0);
 
   const startTimmer = (): void => {
-    const countDownDate = new Date("Jan 5, 2023 15:37:25").getTime();
+    const countDownDate = new Date(`${props}`).getTime();
 
     const x = setInterval((): void => {
       const now = new Date().getTime();
@@ -38,7 +40,12 @@ const CountDown = (props: Props) => {
     startTimmer();
   }, []);
 
-  return <div>CountDown</div>;
+  return {
+    days,
+    hours,
+    minutes,
+    seconds,
+  };
 };
 
-export default CountDown;
+export default useCountdown;

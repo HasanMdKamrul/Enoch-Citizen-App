@@ -15,17 +15,15 @@ interface Props {
     price: number;
     image: any;
     likes: number;
+    countDownStartTime?: string;
   };
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
 }
 
-const CardComponent = ({ item, days, hours, minutes, seconds }: Props) => {
+const CardComponent = ({ item }: Props) => {
   console.log(item);
 
-  const { author, biding, image, likes, price, title } = item;
+  const { author, biding, image, likes, price, title, countDownStartTime } =
+    item;
 
   return (
     <Flex justify={"center"}>
@@ -35,8 +33,6 @@ const CardComponent = ({ item, days, hours, minutes, seconds }: Props) => {
           my={12}
           p={5}
           border="1px solid black"
-          //   maxW="315px"
-          //   maxH="545px"
           borderRadius="lg"
         >
           <Flex align="center" justify="space-between" gap="5">
@@ -68,11 +64,8 @@ const CardComponent = ({ item, days, hours, minutes, seconds }: Props) => {
                 Highest Bid
               </BidingTag>
               <BidingTag
-                days={days}
-                hours={hours}
-                minutes={minutes}
-                seconds={seconds}
                 timer={true}
+                countDownStartTime={countDownStartTime}
                 secondText={"03 : 18 : 24 : 42s"}
                 flex={1}
                 color={"gray.200"}
@@ -89,6 +82,8 @@ const CardComponent = ({ item, days, hours, minutes, seconds }: Props) => {
                 {`$${price}`}
               </SalingTag>
               <SalingTag
+                timer={true}
+                countDownStartTime={countDownStartTime}
                 secondText={"03 : 18 : 24 : 42s"}
                 flex={1}
                 color={"gray.200"}
@@ -109,15 +104,7 @@ const CardComponent = ({ item, days, hours, minutes, seconds }: Props) => {
               </CardButton>
             </WrapItem>
           )}
-          {/* <WrapItem my={4} gap={2}>
-            <CardButton
-              width={"full"}
-              varient={"solid"}
-              colorScheme={"messenger"}
-            >
-              Bid Now
-            </CardButton>
-          </WrapItem> */}
+
           {!biding && (
             <WrapItem my={4} gap={2}>
               <CardButton

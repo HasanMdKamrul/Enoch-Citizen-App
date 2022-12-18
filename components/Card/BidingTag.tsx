@@ -1,15 +1,20 @@
 import { Box, Tag, Text } from "@chakra-ui/react";
+import useCountdown from "../../Hooks/useCountdown";
 
 interface Props {
   color: string;
   flex?: number;
   children: string;
   secondText: number | string;
+  timer?: boolean;
+  countDownStartTime?: string | undefined;
+}
+
+interface Countdown {
   days: number;
   hours: number;
   minutes: number;
   seconds: number;
-  timer?: boolean;
 }
 
 const BidingTag = ({
@@ -17,12 +22,11 @@ const BidingTag = ({
   children,
   secondText,
   flex,
-  days,
-  hours,
-  minutes,
-  seconds,
   timer,
+  countDownStartTime,
 }: Props) => {
+  const { days, hours, minutes, seconds } = useCountdown(countDownStartTime!);
+
   return (
     <Tag
       bg={"transparent"}
@@ -43,8 +47,8 @@ const BidingTag = ({
         >
           {children}
         </Text>
-        <Text fontSize={"md"} color={"white"}>
-          {timer ? `${days}:${hours}:${minutes}:${seconds}` : secondText}
+        <Text fontWeight={"bold"} fontSize={"md"} color={"white"}>
+          {timer ? `${days} : ${hours} : ${minutes} : ${seconds}` : secondText}S
         </Text>
       </Box>
     </Tag>

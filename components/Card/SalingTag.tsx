@@ -1,4 +1,5 @@
 import { Badge, Box, Tag, Text } from "@chakra-ui/react";
+import useCountdown from "../../Hooks/useCountdown";
 
 interface Props {
   color: string;
@@ -6,9 +7,28 @@ interface Props {
   children: string;
   secondText: number | string;
   sale?: boolean;
+  timer: boolean;
+  countDownStartTime?: string | undefined;
 }
 
-const SalingTag = ({ color, children, secondText, flex, sale }: Props) => {
+interface Countdown {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+const SalingTag = ({
+  color,
+  children,
+  secondText,
+  flex,
+  sale,
+  timer,
+  countDownStartTime,
+}: Props) => {
+  const { days, hours, minutes, seconds } = useCountdown(countDownStartTime!);
+
   return (
     <Tag
       position={"relative"}
@@ -43,8 +63,8 @@ const SalingTag = ({ color, children, secondText, flex, sale }: Props) => {
             </Badge>
           )}
         </Text>
-        <Text fontSize={"md"} color={"white"}>
-          {secondText}
+        <Text fontWeight={"bold"} fontSize={"md"} color={"white"}>
+          {timer ? `${days} : ${hours} : ${minutes} : ${seconds}` : secondText}S
         </Text>
       </Box>
     </Tag>
