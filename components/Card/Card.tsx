@@ -1,9 +1,11 @@
 import { Box, Flex } from "@chakra-ui/react";
+import Image from "next/image";
+import image from "../../public/images/mo-NKhckz9B78c-unsplash.jpg";
 import HeaderTag from "../HeaderTag/HeaderTag";
 
 interface Props {}
 
-const Card: (props: Props) => JSX.Element = (props: Props) => {
+const CardComponent: (props: Props) => JSX.Element = (props: Props) => {
   return (
     <Flex justify={"center"}>
       <Box
@@ -22,9 +24,19 @@ const Card: (props: Props) => JSX.Element = (props: Props) => {
             Action
           </HeaderTag>
         </Flex>
+        <Box my={5} rounded={"lg"} overflow="hidden">
+          <Image layout="responsive" src={image} alt="" />
+        </Box>
       </Box>
     </Flex>
   );
 };
 
-export default Card;
+export default CardComponent;
+
+// {/* ** Image */}
+{
+  /* <Box my={5} rounded={"lg"} overflow="hidden">
+<Image layout="responsive" src={image} alt="" />
+</Box> */
+}

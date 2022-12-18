@@ -9,7 +9,12 @@ interface Props {
 const HeaderTag = ({ children, variant, colorScheme }: Props) => {
   return (
     <>
-      <Tag bg="transparent" variant={variant} colorScheme={colorScheme}>
+      <Tag
+        rounded={"2xl"}
+        bg="transparent"
+        variant={variant}
+        colorScheme={colorScheme}
+      >
         {children}
       </Tag>
     </>
