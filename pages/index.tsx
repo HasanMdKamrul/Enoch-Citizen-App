@@ -1,10 +1,92 @@
+import { SimpleGrid } from "@chakra-ui/react";
 import { Inter } from "@next/font/google";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import CardComponent from "../components/Card/Card";
+import image1 from "../public/images/image1.jpg";
+import image2 from "../public/images/image2.jpg";
+import image3 from "../public/images/image3.jpg";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+// let cardData: {
+//   id: number;
+//   title: string;
+//   author: string;
+//   biding: boolean;
+//   price: number;
+//   image: StaticImageData;
+//   likes: number;
+// }[];
+
+const cardData = [
+  {
+    id: 1,
+    title: "Product 1",
+    author: "Enoch Citizen",
+    biding: true,
+    price: 100,
+    image: image1,
+    likes: 32,
+  },
+  {
+    id: 2,
+    title: "Product 2",
+    author: "Enoch Citizen",
+    biding: true,
+    price: 100,
+    image: image2,
+    likes: 32,
+  },
+  {
+    id: 3,
+    title: "Product 3",
+    author: "Enoch Citizen",
+    biding: false,
+    price: 100,
+    image: image3,
+    likes: 32,
+  },
+];
+
+export default function Home(): JSX.Element {
+  const [days, setDays] = useState<number>(0);
+  const [hours, setHours] = useState<number>(0);
+  const [minutes, setMinutes] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
+
+  const startTimmer = (): void => {
+    const countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+
+    const x = setInterval((): void => {
+      const now = new Date().getTime();
+
+      const distance = countDownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setDays(days);
+      setHours(hours);
+      setMinutes(minutes);
+      setSeconds(seconds);
+
+      if (distance < 0) {
+        clearInterval(x);
+      }
+    }, 1000);
+  };
+
+  useEffect(() => {
+    startTimmer();
+  }, []);
+
+  console.log(days, hours, minutes, seconds);
+
   return (
     <>
       <Head>
@@ -13,7 +95,27 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CardComponent />
+      <SimpleGrid
+        mx={10}
+        columns={{
+          lg: 3,
+          md: 2,
+          sm: 1,
+        }}
+        spacing={4}
+      >
+        {cardData?.map((item, index) => (
+          <CardComponent
+            days={days}
+            hours={hours}
+            minutes={minutes}
+            seconds={seconds}
+            item={item}
+            key={index}
+          />
+        ))}
+      </SimpleGrid>
+      {/* <CardComponent /> */}
     </>
   );
 }

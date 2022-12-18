@@ -1,13 +1,32 @@
-import { Box, Card, Flex } from "@chakra-ui/react";
+import { Box, Card, Flex, WrapItem } from "@chakra-ui/react";
 import Image from "next/image";
-import image from "../../public/images/mo-NKhckz9B78c-unsplash.jpg";
 import HeaderTag from "../HeaderTag/HeaderTag";
 import BidingTag from "./BidingTag";
 import CardBodyComponent from "./CardBodyComponent";
+import CardButton from "./CardButton";
+import SalingTag from "./SalingTag";
 
-interface Props {}
+interface Props {
+  item: {
+    id: number;
+    title: string;
+    author: string;
+    biding: boolean;
+    price: number;
+    image: any;
+    likes: number;
+  };
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
 
-const CardComponent: (props: Props) => JSX.Element = (props: Props) => {
+const CardComponent = ({ item, days, hours, minutes, seconds }: Props) => {
+  console.log(item);
+
+  const { author, biding, image, likes, price, title } = item;
+
   return (
     <Flex justify={"center"}>
       <Card maxW={"sm"}>
@@ -24,9 +43,15 @@ const CardComponent: (props: Props) => JSX.Element = (props: Props) => {
             <HeaderTag colorScheme="gray" variant="outline">
               Hot Deal
             </HeaderTag>
-            <HeaderTag colorScheme="orange" variant="outline">
-              Action
-            </HeaderTag>
+            {biding ? (
+              <HeaderTag colorScheme="orange" variant="outline">
+                Action
+              </HeaderTag>
+            ) : (
+              <HeaderTag colorScheme="blue" variant="outline">
+                Sale
+              </HeaderTag>
+            )}
           </Flex>
           {/* ** Image */}
           <Box my={5} rounded={"lg"} overflow="hidden">
@@ -34,21 +59,83 @@ const CardComponent: (props: Props) => JSX.Element = (props: Props) => {
           </Box>
           {/* ** body */}
           <Flex justify={"space-between"}>
-            <CardBodyComponent />
+            <CardBodyComponent title={title} author={author} likes={likes} />
           </Flex>
           {/* ** Countdown */}
-          <Flex mt={4} gap={3}>
-            <BidingTag secondText={260} color={"orange"}>
-              Highest Bid
-            </BidingTag>
-            <BidingTag
-              secondText={"03 : 18 : 24 : 42s"}
-              flex={1}
-              color={"gray.200"}
+          {biding && (
+            <Flex mt={4} gap={3}>
+              <BidingTag secondText={`$${price}`} color={"orange"}>
+                Highest Bid
+              </BidingTag>
+              <BidingTag
+                days={days}
+                hours={hours}
+                minutes={minutes}
+                seconds={seconds}
+                timer={true}
+                secondText={"03 : 18 : 24 : 42s"}
+                flex={1}
+                color={"gray.200"}
+              >
+                AUCTION ENDS IN
+              </BidingTag>
+            </Flex>
+          )}
+          {/* Sale Tags */}
+
+          {!biding && (
+            <Flex mt={4} gap={3}>
+              <SalingTag sale={true} secondText={`$${price}`} color={"orange"}>
+                {`$${price}`}
+              </SalingTag>
+              <SalingTag
+                secondText={"03 : 18 : 24 : 42s"}
+                flex={1}
+                color={"gray.200"}
+              >
+                Flash Deal ends in
+              </SalingTag>
+            </Flex>
+          )}
+          {/* ** Button */}
+          {biding && (
+            <WrapItem my={4} gap={2}>
+              <CardButton
+                width={"full"}
+                varient={"solid"}
+                colorScheme={"messenger"}
+              >
+                Bid Now
+              </CardButton>
+            </WrapItem>
+          )}
+          {/* <WrapItem my={4} gap={2}>
+            <CardButton
+              width={"full"}
+              varient={"solid"}
+              colorScheme={"messenger"}
             >
-              AUCTION ENDS IN
-            </BidingTag>
-          </Flex>
+              Bid Now
+            </CardButton>
+          </WrapItem> */}
+          {!biding && (
+            <WrapItem my={4} gap={2}>
+              <CardButton
+                width={"full"}
+                varient={"outline"}
+                colorScheme={"whiteAlpha"}
+              >
+                Add to Cart
+              </CardButton>
+              <CardButton
+                width={"full"}
+                varient={"solid"}
+                colorScheme={"messenger"}
+              >
+                Buy Now
+              </CardButton>
+            </WrapItem>
+          )}
         </Box>
       </Card>
     </Flex>

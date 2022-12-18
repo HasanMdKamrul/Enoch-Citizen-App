@@ -1,20 +1,24 @@
 import { Box, HStack, Icon, Text } from "@chakra-ui/react";
 import { FaHeart } from "react-icons/fa";
 
-type Props = {};
+interface Props {
+  title: string;
+  author: string;
+  likes: number;
+}
 
-const CardBodyComponent = (props: Props) => {
+const CardBodyComponent = ({ title, author, likes }: Props) => {
   return (
     <>
       <Box>
         <Text fontSize="2xl" color={"white"}>
-          Product 1
+          {title}
         </Text>
-        <Text color={"gray.200"}>Enoch Citizen</Text>
+        <Text color={"gray.200"}>{author}</Text>
       </Box>
       <HStack>
         <Icon as={FaHeart} color="red" />
-        <Text color={"white"}>32</Text>
+        <Text color={"white"}>{likes}</Text>
       </HStack>
     </>
   );

@@ -5,9 +5,24 @@ interface Props {
   flex?: number;
   children: string;
   secondText: number | string;
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  timer?: boolean;
 }
 
-const BidingTag = ({ color, children, secondText, flex }: Props) => {
+const BidingTag = ({
+  color,
+  children,
+  secondText,
+  flex,
+  days,
+  hours,
+  minutes,
+  seconds,
+  timer,
+}: Props) => {
   return (
     <Tag
       bg={"transparent"}
@@ -18,8 +33,8 @@ const BidingTag = ({ color, children, secondText, flex }: Props) => {
     >
       <Box>
         <Text
-          flex={1}
-          //   flex={flex}
+          //   flex={1}
+          flex={flex}
           mb={2}
           textTransform={"uppercase"}
           fontSize={"md"}
@@ -29,7 +44,7 @@ const BidingTag = ({ color, children, secondText, flex }: Props) => {
           {children}
         </Text>
         <Text fontSize={"md"} color={"white"}>
-          ${secondText}
+          {timer ? `${days}:${hours}:${minutes}:${seconds}` : secondText}
         </Text>
       </Box>
     </Tag>
