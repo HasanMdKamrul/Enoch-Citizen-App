@@ -48,7 +48,7 @@ const BidingTag = ({
           {children}
         </Text>
         <Text fontWeight={"bold"} fontSize={"md"} color={"white"}>
-          {timer ? `${days} : ${hours} : ${minutes} : ${seconds}` : secondText}S
+          {timer ? `${days} : ${hours} : ${minutes} : ${seconds}S` : secondText}
         </Text>
       </Box>
     </Tag>

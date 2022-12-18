@@ -1,5 +1,6 @@
 import { Box, Card, Flex, useDisclosure, WrapItem } from "@chakra-ui/react";
 import Image from "next/image";
+import { useState } from "react";
 import HeaderTag from "../HeaderTag/HeaderTag";
 import GenericModal from "../Modal/GenericModal";
 import BidingTag from "./BidingTag";
@@ -21,17 +22,16 @@ interface Props {
 }
 
 const CardComponent = ({ item }: Props) => {
+  const { author, biding, image, likes, price, title, countDownStartTime } =
+    item;
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [bidingPrice, setBidingPrice] = useState<number>(price);
 
   let handleClick: () => any;
 
   handleClick = (): void => {
     onOpen();
-    console.log("clicked");
   };
-
-  const { author, biding, image, likes, price, title, countDownStartTime } =
-    item;
 
   return (
     <Flex justify={"center"}>
@@ -68,7 +68,7 @@ const CardComponent = ({ item }: Props) => {
           {/* ** Countdown */}
           {biding && (
             <Flex mt={4} gap={3}>
-              <BidingTag secondText={`$${price}`} color={"orange"}>
+              <BidingTag secondText={`$${bidingPrice}`} color={"orange"}>
                 Highest Bid
               </BidingTag>
               <BidingTag
@@ -86,8 +86,12 @@ const CardComponent = ({ item }: Props) => {
 
           {!biding && (
             <Flex mt={4} gap={3}>
-              <SalingTag sale={true} secondText={`$${price}`} color={"orange"}>
-                {`$${price}`}
+              <SalingTag
+                sale={true}
+                secondText={`$${bidingPrice - bidingPrice * 0.15}`}
+                color={"orange"}
+              >
+                {`$${bidingPrice}`}
               </SalingTag>
               <SalingTag
                 timer={true}
@@ -134,7 +138,13 @@ const CardComponent = ({ item }: Props) => {
           )}
         </Box>
       </Card>
-      <GenericModal onOpen={onOpen} isOpen={isOpen} onClose={onClose} />
+      <GenericModal
+        setBidingPrice={setBidingPrice}
+        bidingPrice={bidingPrice}
+        onOpen={onOpen}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
     </Flex>
   );
 };

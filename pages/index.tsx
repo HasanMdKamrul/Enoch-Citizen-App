@@ -61,7 +61,11 @@ export default function Home(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SimpleGrid
-        mx={10}
+        mx={{
+          lg: "5%",
+          md: "5%",
+          sm: "5%",
+        }}
         columns={{
           lg: 3,
           md: 2,
