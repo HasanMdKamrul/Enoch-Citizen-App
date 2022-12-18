@@ -17,7 +17,7 @@ const theme = extendTheme({
   styles: {
     global: {
       "html, body": {
-        backgroundColor: "#0C2236",
+        backgroundColor: "black",
         lineHeight: "tall",
       },
       a: {
