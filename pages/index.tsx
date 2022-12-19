@@ -1,8 +1,15 @@
-import { Center, Heading, SimpleGrid, useColorMode } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Heading,
+  SimpleGrid,
+  useColorMode,
+} from "@chakra-ui/react";
 import { Inter } from "@next/font/google";
 import Head from "next/head";
 import CardComponent from "../components/Card/Card";
 import CaroselComponent from "../components/CaroselComponent/CaroselComponent";
+import Services from "../components/OurServices/OurServices";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -90,7 +97,7 @@ export default function Home(): JSX.Element {
 
       {/* ** Services */}
 
-      {/* <Box
+      <Box
         mx={{
           lg: "5%",
           md: "5%",
@@ -98,7 +105,7 @@ export default function Home(): JSX.Element {
         }}
       >
         <Services />
-      </Box> */}
+      </Box>
 
       {/* ** Stat  */}
       {/* <CompanyStat /> */}
