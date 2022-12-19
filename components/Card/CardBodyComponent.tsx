@@ -14,7 +14,7 @@ const CardBodyComponent = ({ title, author, likes }: Props) => {
         <Text fontSize="2xl" color={"white"}>
           {title}
         </Text>
-        <Text color={"gray.200"}>{author}</Text>
+        <Text color={"gray.500"}>{author}</Text>
       </Box>
       <HStack>
         <Icon as={FaHeart} color="red" />
