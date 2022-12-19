@@ -9,6 +9,8 @@ import { Inter } from "@next/font/google";
 import Head from "next/head";
 import CardComponent from "../components/Card/Card";
 import CaroselComponent from "../components/CaroselComponent/CaroselComponent";
+import CompanyStat from "../components/CompanyStat/CompanyStat";
+import CustomerFeedBack from "../components/CustomerFeedback/CustomerFeedback";
 import Services from "../components/OurServices/OurServices";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -108,10 +110,10 @@ export default function Home(): JSX.Element {
       </Box>
 
       {/* ** Stat  */}
-      {/* <CompanyStat /> */}
+      <CompanyStat />
 
       {/* Customer Feedback */}
-      {/* <CustomerFeedBack /> */}
+      <CustomerFeedBack />
     </>
   );
 }
