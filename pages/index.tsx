@@ -2,9 +2,6 @@ import { Center, Heading, SimpleGrid, useColorMode } from "@chakra-ui/react";
 import { Inter } from "@next/font/google";
 import Head from "next/head";
 import CardComponent from "../components/Card/Card";
-import image1 from "../public/images/image1.jpg";
-import image2 from "../public/images/image2.jpg";
-import image3 from "../public/images/image3.jpg";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +22,7 @@ const cardData = [
     author: "Enoch Citizen",
     biding: true,
     price: 100,
-    image: image1,
+    // image: image1,
     likes: 32,
     countDownStartTime: "Jan 5, 2023 15:37:25",
   },
@@ -35,7 +32,7 @@ const cardData = [
     author: "Enoch Citizen",
     biding: true,
     price: 100,
-    image: image2,
+    // image: image2,
     likes: 79,
     countDownStartTime: "Jan 15, 2023 15:37:25",
   },
@@ -45,7 +42,7 @@ const cardData = [
     author: "Enoch Citizen",
     biding: false,
     price: 100,
-    image: image3,
+    // image: image3,
     likes: 300,
     countDownStartTime: "Jan 25, 2023 15:37:25",
   },
