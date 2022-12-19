@@ -1,4 +1,4 @@
-import { SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid, useColorMode } from "@chakra-ui/react";
 import { Inter } from "@next/font/google";
 import Head from "next/head";
 import CardComponent from "../components/Card/Card";
@@ -36,7 +36,7 @@ const cardData = [
     biding: true,
     price: 100,
     image: image2,
-    likes: 32,
+    likes: 79,
     countDownStartTime: "Jan 15, 2023 15:37:25",
   },
   {
@@ -46,12 +46,14 @@ const cardData = [
     biding: false,
     price: 100,
     image: image3,
-    likes: 32,
+    likes: 300,
     countDownStartTime: "Jan 25, 2023 15:37:25",
   },
 ];
 
 export default function Home(): JSX.Element {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <>
       <Head>
@@ -77,7 +79,6 @@ export default function Home(): JSX.Element {
           <CardComponent item={item} key={index} />
         ))}
       </SimpleGrid>
-      {/* <CardComponent /> */}
     </>
   );
 }

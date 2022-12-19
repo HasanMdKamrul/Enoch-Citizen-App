@@ -3,7 +3,7 @@ import { Button } from "@chakra-ui/react";
 interface Props {
   width?: string;
   varient: string;
-  colorScheme: string;
+  colorScheme?: string;
   children: string;
   handleBid?: () => void;
 }

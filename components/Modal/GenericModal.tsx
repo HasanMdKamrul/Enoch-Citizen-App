@@ -19,7 +19,8 @@ interface Props {
   isOpen: boolean;
   onClose: () => void;
   bidingPrice: number | string;
-  setBidingPrice: (price: number | string) => void;
+
+  setBidingPrice: (price: number) => void;
 }
 
 const GenericModal = ({
@@ -81,7 +82,9 @@ const GenericModal = ({
           <Button onClick={handleBid} colorScheme="blue" mr={3}>
             Bid
           </Button>
-          <Button onClick={onClose}>Cancel</Button>
+          <Button colorScheme="red" onClick={onClose}>
+            Cancel
+          </Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
