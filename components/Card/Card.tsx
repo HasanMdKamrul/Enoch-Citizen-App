@@ -16,7 +16,7 @@ interface Props {
     author: string;
     biding: boolean;
     price: number;
-    image?: any;
+    image?: string | undefined;
     likes: number;
     countDownStartTime?: string;
   };
@@ -72,7 +72,7 @@ const CardComponent = ({ item }: Props) => {
             layout="responsive"
             width={500}
             height={500}
-            src="https://images.unsplash.com/photo-1633876841461-772d2b0b0e39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=831&q=80"
+            src={image!}
             alt=""
           />
         </Box>

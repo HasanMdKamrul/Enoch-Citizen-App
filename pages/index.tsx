@@ -32,7 +32,8 @@ const cardData = [
     author: "Enoch Citizen",
     biding: true,
     price: 100,
-    // image: image1,
+    image:
+      "https://images.unsplash.com/photo-1633643092028-b66187af7d47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
     likes: 32,
     countDownStartTime: "Jan 5, 2023 15:37:25",
   },
@@ -42,7 +43,8 @@ const cardData = [
     author: "Enoch Citizen",
     biding: true,
     price: 100,
-    // image: image2,
+    image:
+      "https://images.unsplash.com/photo-1657641898365-48ae7d64e676?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
     likes: 79,
     countDownStartTime: "Jan 15, 2023 15:37:25",
   },
@@ -52,7 +54,8 @@ const cardData = [
     author: "Enoch Citizen",
     biding: false,
     price: 100,
-    // image: image3,
+    image:
+      "https://images.unsplash.com/photo-1649696548151-1c59b82cd34e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
     likes: 300,
     countDownStartTime: "Jan 25, 2023 15:37:25",
   },
