@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Project Name or Website Name
 
-## Getting Started
+# ENOCH CITIZEN TASK
 
-First, run the development server:
+# To see live: https://enoch-citizen-app.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Author : Md Kamrul Hasan
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# What features it offers?
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- In this app I have build dynamic cards.
+- Not only the cards but also every component inside the card is re-usable.
+- I have used different countdown timmer with different time and date.
+- Each timmer is functional, you can visualise them.
+- I have added a modal where you can provide your biding price and it updates instantly. The modal is a generic re-usable modal component which can be used in any other project.
+- You can't provide a price less than the current price.
+- This app will warn you with toast and it will not update the price.
+- I have also added price reduction feature, you specify your discount percentage and it will reduce the price automatically.
+- Every data is dynamic, later you can convert them to API and it will work perfectly. By using few lines of code.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+#Extar Features
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Dark and Light mode added by the built-in Chakra UI theme engine.
+- A beautiful slider is added to the home page. Which automatically slides . You can also slide it manually.
+- A beautiful and responsive footer is added.
+- A beautiful and responsive navbar is added. The navbar has a logo, 3 different functional routes.
+- You can Navigate to About and Contact , you will find a beautiful animation there.
+- A Custom 404 page is added with an amazing animation.
 
-## Learn More
+## What is used to build this web-site (Technologies)?
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.js
+- Typescript
+- Chakra UI
+- React-Slick
+- React-hot-toast
+- React-Icons
+- React-Lottie
