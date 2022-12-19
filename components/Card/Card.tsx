@@ -16,7 +16,7 @@ interface Props {
     author: string;
     biding: boolean;
     price: number;
-    image: any;
+    image?: any;
     likes: number;
     countDownStartTime?: string;
   };
@@ -68,7 +68,13 @@ const CardComponent = ({ item }: Props) => {
         </Flex>
         {/* ** Image */}
         <Box my={5} rounded={"lg"} overflow="hidden">
-          <Image layout="responsive" src={image} alt="" />
+          <Image
+            layout="responsive"
+            width={500}
+            height={500}
+            src="https://images.unsplash.com/photo-1633876841461-772d2b0b0e39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=831&q=80"
+            alt=""
+          />
         </Box>
         {/* ** body */}
         <Flex justify={"space-between"}>
