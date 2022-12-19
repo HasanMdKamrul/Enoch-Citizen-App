@@ -18,7 +18,7 @@
 - I have also added price reduction feature, you specify your discount percentage and it will reduce the price automatically.
 - Every data is dynamic, later you can convert them to API and it will work perfectly. By using few lines of code.
 
-#Extar Features
+# Extar Features
 
 - Dark and Light mode added by the built-in Chakra UI theme engine.
 - A beautiful slider is added to the home page. Which automatically slides . You can also slide it manually.
