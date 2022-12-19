@@ -2,6 +2,7 @@ import { Center, Heading, SimpleGrid, useColorMode } from "@chakra-ui/react";
 import { Inter } from "@next/font/google";
 import Head from "next/head";
 import CardComponent from "../components/Card/Card";
+import CaroselComponent from "../components/CaroselComponent/CaroselComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -60,7 +61,7 @@ export default function Home(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <CaroselComponent /> */}
+      <CaroselComponent />
 
       {/* Card Component */}
       <Center my={4}>
