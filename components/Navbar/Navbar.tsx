@@ -11,9 +11,8 @@ import {
   Flex,
   Icon,
   IconButton,
-  Link,
+  //   Link,
   Popover,
-  PopoverContent,
   PopoverTrigger,
   Stack,
   Text,
@@ -22,6 +21,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 import logo from "../../public/Icons/1.svg";
@@ -129,7 +129,7 @@ const DesktopNav = () => {
               </Link>
             </PopoverTrigger>
 
-            {navItem.children && (
+            {/* {navItem.children && (
               <PopoverContent
                 border={0}
                 boxShadow={"xl"}
@@ -144,7 +144,7 @@ const DesktopNav = () => {
                   ))}
                 </Stack>
               </PopoverContent>
-            )}
+            )} */}
           </Popover>
         </Box>
       ))}
@@ -266,36 +266,14 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
-    ],
+    href: "/",
   },
   {
     label: "About",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
+    href: "/about",
   },
   {
     label: "Contact",
-    href: "#",
+    href: "/contact",
   },
 ];
