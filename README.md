@@ -17,6 +17,7 @@
 - This app will warn you with toast and it will not update the price.
 - I have also added price reduction feature, you specify your discount percentage and it will reduce the price automatically.
 - Every data is dynamic, later you can convert them to API and it will work perfectly. By using few lines of code.
+- Everything is responsive, you can check it on your mobile phone and tablet view as well.
 
 # Extar Features
 
