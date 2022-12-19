@@ -1,9 +1,4 @@
-import {
-  ChevronDownIcon,
-  ChevronRightIcon,
-  CloseIcon,
-  HamburgerIcon,
-} from "@chakra-ui/icons";
+import { ChevronDownIcon, CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -115,15 +110,15 @@ const DesktopNav = () => {
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
-                p={2}
+                // p={2}
                 href={navItem.href ?? "#"}
-                fontSize={"sm"}
-                fontWeight={500}
-                color={linkColor}
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor,
-                }}
+                // fontSize={"sm"}
+                // fontWeight={500}
+                // color={linkColor}
+                // _hover={{
+                //   textDecoration: "none",
+                //   color: linkHoverColor,
+                // }}
               >
                 {navItem.label}
               </Link>
@@ -152,42 +147,42 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
-  return (
-    <Link
-      href={href}
-      role={"group"}
-      display={"block"}
-      p={2}
-      rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
-    >
-      <Stack direction={"row"} align={"center"}>
-        <Box>
-          <Text
-            transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
-            fontWeight={500}
-          >
-            {label}
-          </Text>
-          <Text fontSize={"sm"}>{subLabel}</Text>
-        </Box>
-        <Flex
-          transition={"all .3s ease"}
-          transform={"translateX(-10px)"}
-          opacity={0}
-          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-          justify={"flex-end"}
-          align={"center"}
-          flex={1}
-        >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
-        </Flex>
-      </Stack>
-    </Link>
-  );
-};
+// const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+//   return (
+//     <Link
+//       href={href}
+//       role={"group"}
+//       display={"block"}
+//       p={2}
+//       rounded={"md"}
+//       _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+//     >
+//       <Stack direction={"row"} align={"center"}>
+//         <Box>
+//           <Text
+//             transition={"all .3s ease"}
+//             _groupHover={{ color: "pink.400" }}
+//             fontWeight={500}
+//           >
+//             {label}
+//           </Text>
+//           <Text fontSize={"sm"}>{subLabel}</Text>
+//         </Box>
+//         <Flex
+//           transition={"all .3s ease"}
+//           transform={"translateX(-10px)"}
+//           opacity={0}
+//           _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+//           justify={"flex-end"}
+//           align={"center"}
+//           flex={1}
+//         >
+//           <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+//         </Flex>
+//       </Stack>
+//     </Link>
+//   );
+// };
 
 const MobileNav = () => {
   return (
@@ -197,13 +192,21 @@ const MobileNav = () => {
       display={{ md: "none" }}
     >
       {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+        <MobileNavItem children={undefined} key={navItem.label} {...navItem} />
       ))}
     </Stack>
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem: ({
+  label,
+  children,
+  href,
+}: {
+  label: any;
+  children: any;
+  href: any;
+}) => JSX.Element = ({ label, children, href }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -244,26 +247,29 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           borderColor={useColorModeValue("gray.200", "gray.700")}
           align={"start"}
         >
-          {children &&
+          {/* {children &&
             children.map((child) => (
               <Link key={child.label} py={2} href={child.href}>
                 {child.label}
               </Link>
-            ))}
+            ))} */}
         </Stack>
       </Collapse>
     </Stack>
   );
 };
 
-interface NavItem {
-  label: string;
-  subLabel?: string;
-  children?: Array<NavItem>;
-  href?: string;
-}
+// interface NavItem {
+//   label: string;
+//   subLabel?: string;
+//   href?: string;
+// }
 
-const NAV_ITEMS: Array<NavItem> = [
+let NAV_ITEMS: {
+  label: string;
+  href: string;
+}[];
+NAV_ITEMS = [
   {
     label: "Home",
     href: "/",
