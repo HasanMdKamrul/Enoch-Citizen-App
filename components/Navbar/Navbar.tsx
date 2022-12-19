@@ -295,7 +295,7 @@ const NAV_ITEMS: Array<NavItem> = [
     ],
   },
   {
-    label: "Contect",
+    label: "Contact",
     href: "#",
   },
 ];
