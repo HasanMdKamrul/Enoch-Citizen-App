@@ -1,17 +1,7 @@
-import {
-  Box,
-  Center,
-  Heading,
-  SimpleGrid,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Center, Heading, SimpleGrid, useColorMode } from "@chakra-ui/react";
 import { Inter } from "@next/font/google";
 import Head from "next/head";
 import CardComponent from "../components/Card/Card";
-import CaroselComponent from "../components/CaroselComponent/CaroselComponent";
-import CompanyStat from "../components/CompanyStat/CompanyStat";
-import CustomerFeedBack from "../components/CustomerFeedback/CustomerFeedback";
-import Services from "../components/OurServices/OurServices";
 import image1 from "../public/images/image1.jpg";
 import image2 from "../public/images/image2.jpg";
 import image3 from "../public/images/image3.jpg";
@@ -73,7 +63,7 @@ export default function Home(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <CaroselComponent />
+      {/* <CaroselComponent /> */}
 
       {/* Card Component */}
       <Center my={4}>
@@ -102,7 +92,7 @@ export default function Home(): JSX.Element {
 
       {/* ** Services */}
 
-      <Box
+      {/* <Box
         mx={{
           lg: "5%",
           md: "5%",
@@ -110,13 +100,13 @@ export default function Home(): JSX.Element {
         }}
       >
         <Services />
-      </Box>
+      </Box> */}
 
       {/* ** Stat  */}
-      <CompanyStat />
+      {/* <CompanyStat /> */}
 
       {/* Customer Feedback */}
-      <CustomerFeedBack />
+      {/* <CustomerFeedBack /> */}
     </>
   );
 }
